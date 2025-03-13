@@ -32,11 +32,13 @@ public class DepartmentController {
 
     @GetMapping("/departments/{id}")
     public Department fetchDepartmentById(@PathVariable("id") Long departmentId) {
+        LOGGER.info("Inside fetchDepartmentById: DepartmentController.");
         return departmentService.fetchDepartmentById(departmentId);
     }
 
     @DeleteMapping("/departments/{id}")
     public String deleteDepartmentById(@PathVariable("id") Long departmentId) {
+        LOGGER.info("Inside deleteDepartmentById: DepartmentController.");
         departmentService.deleteDepartmentById(departmentId);
         return "Department deleted successfully!";
     }
@@ -44,11 +46,13 @@ public class DepartmentController {
     @PutMapping("/departments/{id}")
     public Department updateDepartment(@PathVariable("id") Long departmentId,
                                        @RequestBody Department department) {
+        LOGGER.info("Inside updateDepartment: DepartmentController.");
         return departmentService.updateDepartment(departmentId, department);
     }
 
     @GetMapping("/departments/name/{name}")
     public Department fetchDepartmentByName(@PathVariable("name") String departmentName) {
+        LOGGER.info("Inside fetchDepartmentByName: DepartmentController.");
         return departmentService.fetchDepartmentByName(departmentName);
     }
 }
